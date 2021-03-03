@@ -12,61 +12,47 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void given_first_name_check_true() {
-        boolean result=user.validateFirstName("Omkar");
-        Assert.assertTrue(result);
-    }
-    @Test
     public void given_first_name_check_false() {
-        boolean result=user.validateFirstName("omkar");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void given_last_name_check_true() {
-        boolean result=user.validateLastName("Mali");
-        Assert.assertTrue(result);
+        try {
+            user.validateLastName("Mali");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Last Name",e.getMessage());
+        }
     }
 
     @Test
     public void given_last_name_check_false() {
-        boolean result=user.validateLastName("mali");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void given_email_check_true() {
-        boolean result=user.validateEmail("omkarmali@gmail.com");
-        Assert.assertTrue(result);
+        try {
+            user.validateLastName("mali");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Last name",e.getMessage());
+        }
     }
 
     @Test
     public void given_email_check_false() {
-        boolean result=user.validateEmail("omkar.@.com");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void given_phone_number_check_true() {
-        boolean result=user.validatePhonenumber("91 9029556132");
-        Assert.assertTrue(result);
+        try {
+            user.validateEmail("omkar.@.com");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Email address", e.getMessage());
+        }
     }
 
     @Test
     public void given_phone_number_check_false() {
-        boolean result=user.validatePhonenumber(".. 565445");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void given_password_check_true() {
-        boolean result=user.validatePassword("Abcdefghah@11");
-        Assert.assertTrue(result);
+        try {
+            user.validatePhonenumber(".. 565445");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Phone number",e.getMessage());
+        }
     }
 
     @Test
     public void given_password_check_false() {
-        boolean result=user.validatePassword("ab");
-        Assert.assertFalse(result);
+        try {
+            user.validatePassword("ab");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid password",e.getMessage());
+        }
     }
 }

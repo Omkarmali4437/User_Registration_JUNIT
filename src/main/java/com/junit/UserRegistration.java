@@ -9,28 +9,28 @@ public class UserRegistration {
     public static String patterphonenumber="^[0-9]{2}[ ][0-9]{10}$";
     public static String patterpassword="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}";
 
-    public boolean validateFirstName(String firstname) {
-        Pattern pattern= Pattern.compile(patternfirstname);
-        return pattern.matcher(firstname).matches();
-    }
-    public boolean validateLastName(String lastname)
+    public void validateFirstName(String firstname) throws UserRegistrationException
     {
-        Pattern pattern= Pattern.compile(patternlastname);
-        return pattern.matcher(lastname).matches();
+       if(!Pattern.compile(patternfirstname).matcher(firstname).matches())
+           throw new UserRegistrationException("Invalid first name");
     }
-    public boolean validateEmail(String email)
+    public void validateLastName(String lastname) throws UserRegistrationException
+
     {
-        Pattern pattern = Pattern.compile(patternemail);
-        return pattern.matcher(email).matches();
+        if(!Pattern.compile(patternlastname).matcher(lastname).matches())
+            throw new UserRegistrationException("Invalid Last name");
     }
-    public boolean validatePhonenumber(String phonenumber) {
-        Pattern pattern= Pattern.compile(patterphonenumber);
-        return pattern.matcher(phonenumber).matches();
+    public void validateEmail(String email) throws UserRegistrationException {
+        if(!Pattern.compile(patternemail).matcher(email).matches())
+            throw new UserRegistrationException("Invalid Email address");
     }
-    public boolean validatePassword(String password)
-    {
-        Pattern pattern = Pattern.compile(patterpassword);
-        return pattern.matcher(password).matches();
+    public void validatePhonenumber(String phonenumber) throws UserRegistrationException {
+        if(!Pattern.compile(patterphonenumber).matcher(phonenumber).matches())
+            throw new UserRegistrationException("Invalid Phone number");
+    }
+    public void validatePassword(String password) throws UserRegistrationException {
+        if(!Pattern.compile(patterpassword).matcher(password).matches())
+            throw new UserRegistrationException("Invalid password");
     }
 
 }
