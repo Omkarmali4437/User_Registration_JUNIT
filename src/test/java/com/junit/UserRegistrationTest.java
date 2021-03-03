@@ -56,5 +56,15 @@ public class UserRegistrationTest {
         boolean result=user.validatePhonenumber(".. 565445");
         Assert.assertFalse(result);
     }
+    @Test
+    public void given_password_check_true() {
+        boolean result=user.validatePassword("abcdefghah");
+        Assert.assertTrue(result);
+    }
 
+    @Test
+    public void given_password_check_false() {
+        boolean result=user.validatePassword("ab");
+        Assert.assertFalse(result);
+    }
 }
