@@ -58,7 +58,7 @@ public class UserRegistrationTest {
     }
     @Test
     public void given_password_check_true() {
-        boolean result=user.validatePassword("abcdefghah");
+        boolean result=user.validatePassword("Abcdefghah");
         Assert.assertTrue(result);
     }
 
