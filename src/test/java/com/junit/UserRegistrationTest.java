@@ -44,4 +44,17 @@ public class UserRegistrationTest {
         boolean result=user.validateEmail("omkar.@.com");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void given_phone_number_check_true() {
+        boolean result=user.validatePhonenumber("91 9029556132");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given_phone_number_check_false() {
+        boolean result=user.validatePhonenumber(".. 565445");
+        Assert.assertFalse(result);
+    }
+
 }
