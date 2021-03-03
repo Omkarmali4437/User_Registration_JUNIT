@@ -5,6 +5,7 @@ public class UserRegistration {
     public boolean result;
     public static String patternfirstname="[A-Z]{1}[a-z]{2,}";
     public static String patternlastname="[A-Z]{1}[a-z]{2,}";
+    public static String patternemail="^[a-zA-Z0-9]+(?:[\\.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z]{1,}+)*$";
 
     public boolean validateFirstName(String firstname) {
         Pattern pattern= Pattern.compile(patternfirstname);
@@ -14,6 +15,13 @@ public class UserRegistration {
     {
         Pattern pattern= Pattern.compile(patternlastname);
         return pattern.matcher(lastname).matches();
+    }
+    public boolean validateEmail(String email)
+    {
+
+        Pattern pattern = Pattern.compile(patternemail);
+
+        return pattern.matcher(email).matches();
     }
 
 }

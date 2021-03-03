@@ -32,4 +32,16 @@ public class UserRegistrationTest {
         boolean result=user.validateLastName("mali");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void given_email_check_true() {
+        boolean result=user.validateEmail("omkarmali@gmail.com");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given_email_check_false() {
+        boolean result=user.validateEmail("omkar.@.com");
+        Assert.assertFalse(result);
+    }
 }
