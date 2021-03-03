@@ -5,7 +5,7 @@ public class UserRegistration {
     public boolean result;
     public static String patternfirstname="[A-Z]{1}[a-z]{2,}";
     public static String patternlastname="[A-Z]{1}[a-z]{2,}";
-    public static String patternemail="^[a-zA-Z0-9]+(?:[\\.+_-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z]{1,}+)*$";
+    public static String patternemail="^[a-zA-z0-9’*+/=?`{|}~^-]{1,}(?:\\.[a-zA-Z0-9’*+/=?`{|}~^-]+)*@[a-zA-Z0-9]{1,}(?:\\.[a-zA-Z,]{2,6})?(?:\\.[a-zA-Z,]{2,6})?$";
     public static String patterphonenumber="^[0-9]{2}[ ][0-9]{10}$";
     public static String patterpassword="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}";
 

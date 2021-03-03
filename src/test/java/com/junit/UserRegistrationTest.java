@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class UserRegistrationTest {
     UserRegistration user;
+
     @Before
     public void intialize() {
         user=new UserRegistration();
@@ -56,6 +57,7 @@ public class UserRegistrationTest {
         boolean result=user.validatePhonenumber(".. 565445");
         Assert.assertFalse(result);
     }
+
     @Test
     public void given_password_check_true() {
         boolean result=user.validatePassword("Abcdefghah@11");
