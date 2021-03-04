@@ -12,7 +12,7 @@ public class UserRegistration {
     public void validateFirstName(String firstname) throws UserRegistrationException
     {
        if(!Pattern.compile(patternfirstname).matcher(firstname).matches())
-           throw new UserRegistrationException("Invalid first name");
+           throw new UserRegistrationException("Invalid First name");
     }
     public void validateLastName(String lastname) throws UserRegistrationException
 
