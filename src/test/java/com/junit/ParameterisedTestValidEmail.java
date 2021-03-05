@@ -30,12 +30,10 @@ public class ParameterisedTestValidEmail {
     }
 
     @Test
-    public void validEmailTest() {
+    public void validEmailTest() throws UserRegistrationException{
 
-        try {
-            operation.validateEmail(email);
-        } catch (UserRegistrationException e) {
-            Assert.assertEquals("Invalid Email address",e.getMessage());
-        }
+            boolean result=operation.validateEmail(email);
+            Assert.assertTrue(result);
+
     }
 }
